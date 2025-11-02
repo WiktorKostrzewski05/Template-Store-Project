@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Login Page
+{% endblock title %}
+{% block content %}
+<title>Desing Flow - Login</title>
+
+<div class="container-fluid d-flex flex-column alight-items-center justify-content-center mt-5">
+    <h1 class="align-self-center"> Login</h1>
+    <form action="" class="d-flex flex-column container align-self-center p-5" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="fieldWrapper align-self-center mb-4">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+        {% endfor %}
+        <button class="btn btn-primary btn-lg ml-2 align-self-center" type="submit">Login</button>
+    </form>
+</div>
+{% endblock content %}

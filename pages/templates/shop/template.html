@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+{{ template.description|truncatewords:155 }}
+{% endblock %}
+{% block title %}
+{{ template.name }} - templates
+{% endblock %}
+{% block content %}
+<title>Desing Flow - Templates</title>
+
+<div class="container-fluid my_template_row_class">
+    <div class="mx-auto">
+        <p><a href="{% url 'all_templates' %}" class="text-decoration-none">All Templates</a> | <a
+                href="{{template.category.get_url }}" class="text-decoration-none">{{template.category}}</a> |
+            {{template.name}}</p>
+    </div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                <div style="min-width: 18rem;">
+                    <img src="{{template.image_thumbnail.url}}" class="img-thumbnail border-0"
+                        alt="{{template.name}}" />
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <div>
+
+                    {% if pro == True %}
+                    <h1 class="text-primary">Flow Pro</h1>
+                    {% endif %}
+                    <h1 class="my_template_title">{{template.name}}</h1>
+                    {% if pro == False %}
+                    <p>€{{template.price}}</p>
+                    {% endif %}
+                    <p class=" my_template_text">{{template.description}}</p>
+
+                    {% if type %}
+                    <p class=" my_template_text">Type: {{type}}</p>
+                    {% endif%}
+
+                    {% if style %}
+                    <p class=" my_template_text">Styles: {{style}}</p>
+                    {% endif%}
+
+
+                    {% if purchased == True or subbed == True and pro == True %}
+                    <a class="btn btn-primary" href="">Download Template</a>
+                    {% elif pro == True %}
+                    <a class="btn btn-primary" href="{% url 'FlowPro' %}">Subscribe to Flow Pro</a>
+                    {% else %}
+                    <a class="btn btn-secondary" href="{% url 'cart:add_cart' template.id %}">Add to Cart</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

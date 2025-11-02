@@ -1,0 +1,58 @@
+{% load static %}
+<div class="feature_small row mx-auto mt-5 ">
+    <h1 class="text-center display-3">Pricing Plans</h1>
+    <div class="row my-0 px-5 g-5">
+        <div class="col-6 p-4 bg-light ">
+            <h1>Free Plan</h1>
+            <h3 class="fw-light">-Access to free templates</h3>
+            <h3 class="fw-light">-Purchase premium templates</h3>
+        </div>
+        <div class="col-6 bg-primary z-3 p-5">
+            <h1 class="text-white">Flow Pro</h1>
+            <h3 class="fw-light text-white text-wrap mb-3">Take your websites to the next level with Flow Pro! </h3>
+            <h3 class="fw-light text-white">-Access to all free templates</h3>
+            <h3 class="fw-light text-white">-Unlimited access to all Flow Pro templates</h3>
+            <h3 class="fw-light text-white">-Access to exclusive templates</h3>
+
+            {% if subbed == False %}
+            <div class="p-5 d-flex justify-content-center">
+                {% if user.is_authenticated %}
+                <button type="button" class="p-2 text-center btn btn-lg btn-light" data-bs-toggle="modal"
+                    data-bs-target="#Subscribe">Upgrade Plan €15/month</button>
+                {% else %}
+                <button type="button" class="p-2 text-center btn btn-lg btn-light"><a class="text-decoration-none" href="{% url 'login' %}">Upgrade Plan €15/month</a></button>
+                {% endif %}
+            </div>
+
+            <div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">Flow Pro</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="h4 fw-normal">Subscribe to Flow Pro for €15 a month</p>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button align-self-center"
+                                    data-key="{{ data_key }}" data-amount="{{ stripe_total }}"
+                                    data-name="Design Flow" data-description="{{ description }}"
+                                    data-image="{% static 'icon.svg' %}" data-email="{{ user.email }}"
+                                    data-locale="auto" data-currency="eur" data-shipping-address="false"
+                                    data-billing-address="true" data-zip-code="true">
+                                    </script>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+</div>

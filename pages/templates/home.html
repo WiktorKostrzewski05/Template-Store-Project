@@ -1,0 +1,105 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block content %}
+<title>Desing Flow - Home</title>
+
+<style>
+  .blob {
+    height: 75vh;
+  }
+
+  .top_display {
+    height: 75vh;
+  }
+
+  .feature_small {
+    max-width: 1200px;
+  }
+
+  .feature_medium {
+    max-width: 1500px;
+  }
+
+  .feature_large {
+    max-width: 2000px;
+  }
+
+  .small_image {
+    height: 45vh;
+  }
+
+  .feature_3d {
+    height: 40vh;
+  }
+
+  .pricing {
+    height: 50vh;
+  }
+</style>
+
+<div class="container-fluid px-0 overflow-x-hidden">
+  <div class="top_display position-relative">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+    <spline-viewer loading-anim-type="spinner-small-dark"
+      url="https://prod.spline.design/F03bNubvaJTxTa-0/scene.splinecode"></spline-viewer>
+    <div class="z-3 position-absolute top-50 start-50 translate-middle">
+      <h1 class="z-3 text-center display-2 text-white">Welcome to</h1>
+      <h1 class="z-3 text-center display-1 text-white fw-bold">Design Flow</h1>
+    </div>
+  </div>
+
+  <div class="feature_small row mx-auto my-0 p-5 g-4">
+    <div class="col-sm-8 p-4">
+      <img class="img-fluid"
+        src="https://th.bing.com/th/id/R.263f49e84fc239314a5158e228ba2bbf?rik=8jzyRJ7CiTGJrw&riu=http%3a%2f%2finfinitumdigital.com%2fwp-content%2fuploads%2f2015%2f07%2fshutterstock_122664079.jpg&ehk=%2bRrAWTY4rotaQqUvIOTAkuYFKVZ%2b1v1Zhr3rwd3iSDM%3d&risl=&pid=ImgRaw&r=0"
+        alt="" />
+    </div>
+    <div class="col-sm-4 p-4">
+      <h1>Stunning Sites</h1>
+      <p>Elevate your business or portfolio with cutting-edge designs. Stand out from the crowd with modern templates.
+        Find templates tailored to diverse industries and purposes, from e-commerce and portfolios to blogs and
+        corporate websites.</p>
+    </div>
+  </div>
+
+  <div class="feature_medium row mx-auto my-0 p-5 g-4">
+    <div class="col-sm-3 p-4">
+      <h1>Stand Out</h1>
+      <p>Create an immersive experience with interactive elements! Bring your website into the third dimension with 3D
+        models!</p>
+      <p>3D models are intractable, they can be rotated, moved, follow the mouse or even jump when pressed or hovered!
+      </p>
+    </div>
+    <div class="col-sm-5 p-4">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+      <spline-viewer class="feature_3d" hint loading-anim-type="spinner-small-dark"
+        url="https://prod.spline.design/TBcKesXVNFw1VP3C/scene.splinecode"></spline-viewer>
+    </div>
+    <div class="col-sm-4 p-4 ">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+      <spline-viewer class="feature_3d" hint loading-anim-type="spinner-small-dark"
+        url="https://prod.spline.design/UNj4SMbo6AUYvGbn/scene.splinecode"></spline-viewer>
+    </div>
+  </div>
+
+  <div class="feature_medium row mx-auto my-0 p-5 g-4">
+    <div class="col-sm-5 p-4">
+      <h1>Created with developers in mind!</h1>
+      <p>Organised code and folder scheme. Variety of packages, from html and css to a full Django project filled with
+        html, css, javascript and 3D Models. Code comments to help explain code snippets along with full documentation
+      </p>
+    </div>
+    <div class="col-sm-7 p-4 ">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+      <spline-viewer class="feature_3d" hint loading-anim-type="spinner-small-dark"
+        url="https://prod.spline.design/C0fZQP1chfZYkYbK/scene.splinecode"></spline-viewer>
+    </div>
+  </div>
+
+  {% include 'pricing.html' %}
+
+
+
+</div>
+{% endblock %}

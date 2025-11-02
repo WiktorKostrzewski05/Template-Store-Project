@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock title %}
+{% block content %}
+<title>Desing Flow - Your Profile</title>
+
+<div class="container-fluid d-flex flex-column alight-items-center justify-content-center mt-5">
+    <h1 class="align-self-center"> Your Profile</h1>
+    <div class="container align-self-center p-5">
+        <p class="h4 fw-normal"> Date Of Birth: {{ user.profile.date_of_birth }}</p>
+        <p class="h4 fw-normal"> Biography: {{ user.profile.bio }}</p>
+        <p class="h4 fw-normal"> Occupation: {{ user.profile.occupation }}
+    </div>
+    <br />
+</div>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block content %}
+<title>Desing Flow - Flow Pro</title>
+
+<style>
+  .blob {
+    height: 75vh;
+  }
+
+  .top_display {
+    height: 75vh;
+  }
+
+  .feature_small {
+    max-width: 1200px;
+  }
+
+  .feature_medium {
+    max-width: 1500px;
+  }
+
+  .feature_large {
+    max-width: 2000px;
+  }
+
+  .small_image {
+    height: 45vh;
+  }
+
+  .feature_3d {
+    height: 40vh;
+  }
+
+  .pricing {
+    height: 50vh;
+  }
+</style>
+
+<!-- Test 1 -->
+
+<div class="container-fluid px-0 overflow-x-hidden">
+  {% include 'pricing.html' %}
+
+
+</div>
+{% endblock %}
